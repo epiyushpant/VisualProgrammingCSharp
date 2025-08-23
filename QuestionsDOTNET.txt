@@ -1,3 +1,7 @@
+Theory 
+
+Chapter one ,Two 
+
 1.  Differentiate between .NET Framework and .NET Core 
 2.  What is .NET ? Explain features of .NET 
 3.  Explain the compilation and execution flow of .NET application with clean diagram 
@@ -13,3 +17,105 @@
 12. Differentiate between abstract class and interface with use case. 
 13. Describe how would you implement abstraction with example . 
 14. Describe encapsulation with code example. What problem does encapsulation solves ? 
+
+Chapter Three
+
+1. Describe delegates in c# with examples .
+2. Differentiate between string and String builder .
+3. What is lamda expression in c# ?  Expalin with example . 
+4. What is difference between generic and non generic collections in c# . Give examples. 
+
+Chapter Four 
+1. What is Entity framework? Differentiate between Code first and database first approach in .NET. 
+4.Describe LINQ with diagram and explain benefits of Linq with examples .
+ 
+
+Chapter Five 
+1. what is ASP.NET ? Difference between ASP.NET and ASP.NET Core 
+2. what is web form application ? How do you differencitate it with asp.net web app (Razor).
+3. Describe MVC architecture in c# with clear diagram and example . 
+4. Describe URL routing in asp.net mvc .  
+
+Chapter Six 
+1. what is ADO.NET ? Describe ADO.NET architecture with clear diagram .
+2. Describe DataReader,DataSet, DataTable and DataAdapter with their usage . 
+3. Describe ExecutenOnQuery() , ExecuteReader() and ExecuteScaler() with its purpose in ADO.NET 
+
+
+
+Coding 
+Chapter Two 
+
+1. write a program to swap number using third variable in c# . 
+2. write a program to swap number without using third variable in c# . 
+3. write a program to input number of element and print fibonacci series in c# 
+4. Write a program in c# to input number from user and check if it is prime or not 
+5. Write a C# Program that will allow the user to input a number and then check whether that number is a Palindrome Number or not.
+6. write a program to take input number from console and reverse the number . 
+7. write a program to take input number from console and  . heck it is armstrong number or not
+8. Write a program in c# to convert temperature from ferhenheit to celsius . 
+
+Chapter Three 
+1. Write a program to reverse string in c# 
+2. Write aprogram to remove duplicate character in c# 
+3. write a lamda expression in c# to sort following list of string by length
+(List<string> words = new List<string> { "apple", "dog", "banana" }
+4. Write lamda expression in c# to check if rhere are any negative number in following list 
+List<int> data = new List<int> { 1, 2, -3, 4 };
+5. Write lamda expression in c# to filter even number form list 
+6. Write lamda expression in c# to check if a string starts with 'A' in c# 
+
+Chapter Four 
+1. Get first 3 element of list using linq in c# [10, 20, 30, 40, 50]
+2. Find all string longer than 5 character in list using linq 
+
+3. Write a LINQ query to join these two lists on Student.Id and Grade.StudentId, and display the Student Name, Course, and Grade.
+
+Student List
+Id: 1, Name: Alice
+Id: 2, Name: Bob
+
+Grade List:
+StudentId: 1, Course: Math, Grade: A
+StudentId: 2, Course: Science, Grade: B
+
+Chapter Five and Six 
+
+1. use the following table structure and do following questions below.  
+
+Student table
+Column Name  DataTyoe 
+StudentId    int
+Name         varchar 
+Age          int =
+
+
+a. Create a model in c#
+b. write a query to create table in database. 
+c. Write query to create stored procedure in database. 
+d. Write ADO.NET Code to insert student into Student Table . 
+
+
+public void InsertStudent(int studentId, string name, int age)
+{
+    // Your ADO.NET code to insert data into the Students table
+}
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
