@@ -17,6 +17,15 @@ namespace C_Basics.Class
             car1.Color = "Black";
             car1.DisplayInfo();
 
+
+            //// Remove references
+            //car1 = null;
+            ////car2 = null;
+
+
+            //GC.Collect();      // Force garbage collection (not recommended in real apps)
+            //GC.WaitForPendingFinalizers();
+
         }
     }
 }

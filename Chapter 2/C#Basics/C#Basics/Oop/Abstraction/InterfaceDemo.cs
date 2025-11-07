@@ -3,33 +3,31 @@
 namespace C_Basics.Oop.Abstraction
 {
 
-    public interface IAnimal
+    interface IPolygon
     {
-        string Name { get; set; }
-        void MakeSound();
-        void DisplayInfo();
+        // method without body
+        void calculateArea(int l, int b);
+
     }
 
-    public class Bird : IAnimal
+    class Rectangle : IPolygon
     {
-        public string Name { get; set; }
 
-        public void MakeSound()
+        // implementation of methods inside interface
+        public void calculateArea(int l, int b)
         {
-            Console.WriteLine("Bird sings: Tweet! Tweet!");
-        }
 
-        public void DisplayInfo()
-        {
-            Console.WriteLine($"Bird: {Name}");
+            int area = l * b;
+            Console.WriteLine("Area of Rectangle: " + area);
         }
     }
 
-    public  class InterfaceDemo
+    public class InterfaceDemo
     {
-        //IAnimal bird = new Bird { Name = "Kiwi" };
-
-        //bird.DisplayInfo();
-        //    bird.MakeSound();
+        public static void RunDemo()
+        {
+            Rectangle r1 = new Rectangle();
+            r1.calculateArea(100, 200);
+        }
     }
 }

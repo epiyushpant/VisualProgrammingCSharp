@@ -48,7 +48,6 @@
         ~Car()
         {
             Console.WriteLine("Car object destroyed.");
-            Console.ReadLine();
         }
 
 

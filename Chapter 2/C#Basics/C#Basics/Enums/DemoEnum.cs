@@ -30,5 +30,80 @@
                     break;
             }
         }
-}
+
+
+        public static  void FindDayFromDate()
+        {
+            Console.Write("Enter a date (yyyy-mm-dd): ");
+            string input = Console.ReadLine();
+
+            if (DateTime.TryParse(input, out DateTime date))
+            {
+                DayOfWeek day = (DayOfWeek)date.DayOfWeek;
+                Console.WriteLine($"That day is: {day}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid date format.");
+            }
+        }
+
+
+        public static void TrafficLightExampleWithoutEnum()
+        {
+            string light = "Red";
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Light is: {light}");
+
+                if (light == "Red")
+                {
+                    Console.WriteLine("Stop!");
+                    light = "Green";
+                }
+                else if (light == "Green")
+                {
+                    Console.WriteLine("Go!");
+                    light = "Yellow";
+                }
+                else if (light == "Yellow")
+                {
+                    Console.WriteLine("Slow down!");
+                    light = "Red";
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        public static void TrafficLightExampleWithEnum()
+        {
+            TrafficLight light = TrafficLight.Red;
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Light is: {light}");
+
+                switch (light)
+                {
+                    case TrafficLight.Red:
+                        Console.WriteLine("Stop!");
+                        light = TrafficLight.Green;
+                        break;
+                    case TrafficLight.Green:
+                        Console.WriteLine("Go!");
+                        light = TrafficLight.Yellow;
+                        break;
+                    case TrafficLight.Yellow:
+                        Console.WriteLine("Slow down!");
+                        light = TrafficLight.Red;
+                        break;
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+    }
 }

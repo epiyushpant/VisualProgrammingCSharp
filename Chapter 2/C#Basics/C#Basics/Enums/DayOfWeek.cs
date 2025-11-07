@@ -11,4 +11,11 @@ namespace C_Basics.Enums
         Friday,
         Saturday
     }
+
+    enum TrafficLight
+    {
+        Red,
+        Green,
+        Yellow
+    }
 }

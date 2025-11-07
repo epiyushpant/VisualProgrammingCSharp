@@ -30,5 +30,17 @@
             person.SetName("Piyush");
             Console.WriteLine(person.GetName());
         }
+
+        public static void CallEncapsulationBankDemo()
+        {
+            BankAccount account = new BankAccount("AC: 400", 5000);
+            //getter only cant set it from here 
+            //account.AccountNumber.ToString();
+            //account.AccountNumber = 7000; // This line would cause a compile-time error
+
+            account.Deposit(500);
+            account.Withdraw(2000);
+
+        }
     }
 }

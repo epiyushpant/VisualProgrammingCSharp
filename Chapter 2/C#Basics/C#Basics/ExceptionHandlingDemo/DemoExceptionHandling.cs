@@ -42,5 +42,116 @@
                 Console.WriteLine("Thank you for using the application.");
             }
         }
+
+
+        public static void NullReferenceExceptionHandling()
+        {
+            try
+            {
+                string str = null;
+                // This will throw a NullReferenceException
+                Console.WriteLine(str.Length);
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine("Caught a NullReferenceException.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+        }
+
+        public static void IndexOutOfRangeExceptionHandling()
+        {
+            try
+            {
+                int[] numbers = { 1, 2, 3 };
+                // This will throw an IndexOutOfRangeException
+                Console.WriteLine(numbers[5]);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Caught an IndexOutOfRangeException.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+        }
+
+        public static void DivideByZeroExceptionHandling()
+        {
+            try
+            {
+                int numerator = 10;
+                int denominator = 0;
+                // This will throw a DivideByZeroException
+                //int result = numerator / denominator;
+
+                int[] numbers = { 1, 2, 3 };
+                // This will throw an IndexOutOfRangeException
+                Console.WriteLine(numbers[5]);
+
+                //Console.WriteLine($"Result: {result}");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("Caught a DivideByZeroException.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+        }
+
+
+        public static void FormatExceptionHandling()
+        {
+            try
+            {
+                string invalidNumber = "abc";
+                // This will throw a FormatException
+                int number = int.Parse(invalidNumber);
+                Console.WriteLine($"Parsed number: {number}");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Caught a FormatException.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+        }
+
+        public static void OverflowExceptionHandling()
+        {
+            try
+            {
+                // This will throw an OverflowException
+                int maxInt = int.MaxValue;
+                int overflowedInt = checked(maxInt + 1);
+                Console.WriteLine($"Overflowed Int: {overflowedInt}");
+            }
+            catch (OverflowException ex)
+            {
+                Console.WriteLine("Caught an OverflowException.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred.");
+                Console.WriteLine($"Details: {ex.Message}");
+            }
+        }
     }
 }

@@ -15,14 +15,14 @@ namespace LearnADODotnet.Models
 {
     public class EmployeeDataAccessLayer
     {
-        string connectionString = "Server=PIYUSH;Initial Catalog=LearnADO;User ID=sa;Password=123456; TrustServerCertificate=True;";
+        string connectionString = "Server=PIYUSH;Initial Catalog=LearnADO;User ID=sa;Password=12345; TrustServerCertificate=True;";
 
         //To View all employees details    
         public IEnumerable<Employee> GetAllEmployees()
         {
             List<Employee> lstemployee = new List<Employee>();
 
-            /*using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("spGetAllEmployees", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -46,12 +46,12 @@ namespace LearnADODotnet.Models
             }
             return lstemployee;
            
-            */
+            
 
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                return con.Query<Employee>("spGetAllEmployees", commandType: CommandType.StoredProcedure).ToList();
-            }
+            //using (SqlConnection con = new SqlConnection(connectionString))
+            //{
+            //    return con.Query<Employee>("spGetAllEmployees", commandType: CommandType.StoredProcedure).ToList();
+            //}
            
         }
 
