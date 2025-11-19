@@ -15,7 +15,11 @@ namespace LearnADODotnet.Models
 {
     public class EmployeeDataAccessLayer
     {
-        string connectionString = "Server=PIYUSH;Initial Catalog=LearnADO;User ID=sa;Password=12345; TrustServerCertificate=True;";
+        //string connectionString = "Server=PIYUSH;Initial Catalog=LearnADO;User ID=sa;Password=12345; TrustServerCertificate=True;";
+        string connectionString =
+"Data Source=RAJENDRA\\SQLEXPRESS;Initial Catalog=LearnADO;Integrated Security=True;TrustServerCertificate=True;";
+
+
 
         //To View all employees details    
         public IEnumerable<Employee> GetAllEmployees()
@@ -91,7 +95,7 @@ namespace LearnADODotnet.Models
                 SqlCommand cmd = new SqlCommand("spUpdateEmployee", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@EmpId", employee.EmployeeId);
+                cmd.Parameters.AddWithValue("@EmployeeId", employee.EmployeeId);
                 cmd.Parameters.AddWithValue("@Name", employee.Name);
                 cmd.Parameters.AddWithValue("@Gender", employee.Gender);
                 cmd.Parameters.AddWithValue("@Department", employee.Department);
@@ -119,7 +123,7 @@ namespace LearnADODotnet.Models
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string sqlQuery = "SELECT * FROM tblEmployee WHERE EmployeeID= " + id;
+                string sqlQuery = "SELECT * FROM Employee WHERE EmployeeID= " + id;
                 SqlCommand cmd = new SqlCommand(sqlQuery, con);
 
                 con.Open();
@@ -171,7 +175,7 @@ namespace LearnADODotnet.Models
 
         public int GetTotalEmployee()
         {
-            string query = "SELECT COUNT(*) FROM tblEmployee";
+            string query = "SELECT COUNT(*) FROM Employee";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -179,7 +183,7 @@ namespace LearnADODotnet.Models
                 con.Open();
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
-            
+
 
             /*using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -187,6 +191,6 @@ namespace LearnADODotnet.Models
             }
             */
         }
-    
+
     }
-}
+    }

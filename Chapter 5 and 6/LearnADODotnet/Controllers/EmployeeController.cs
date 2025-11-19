@@ -15,13 +15,13 @@ namespace LearnADODotnet.Controllers
             //return View(lstEmployee);
 
             // Get the total number of employees
-            int totalEmployees = objemployee.GetTotalEmployee();
+            //int totalEmployees = objemployee.GetTotalEmployee();
 
             // Create a ViewModel or pass the data directly
             var viewModel = new EmployeeIndexViewModel
             {
                 Employees = lstEmployee,
-                TotalEmployees = totalEmployees
+                //TotalEmployees = totalEmployees
             };
 
             return View(viewModel);
