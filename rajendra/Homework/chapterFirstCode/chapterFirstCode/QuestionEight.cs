@@ -8,14 +8,14 @@ namespace chapterFirstCode
 {
     internal class QuestionEight
     {
-        static int Fib(int n)
+        public int Fib(int n)
         {
             if (n <= 1)
                 return n;
             return Fib(n - 1) + Fib(n - 2);
         }
 
-        static void eight()
+        public void eight()
         {
             Console.Write($"Enter number of terms: ");
             int n = int.Parse(Console.ReadLine());

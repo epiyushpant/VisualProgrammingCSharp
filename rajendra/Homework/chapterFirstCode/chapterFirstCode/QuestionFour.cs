@@ -8,7 +8,7 @@ namespace chapterFirstCode
 {
     internal class QuestionFour
     {
-        static void four()
+        public void four()
         {
             Console.Write("Enter a number: ");
             string input = Console.ReadLine();
@@ -32,7 +32,7 @@ namespace chapterFirstCode
             }
         }
 
-        static string ReverseString(string str)
+        public string ReverseString(string str)
         {
             char[] charArray = str.ToCharArray();
             Array.Reverse(charArray);
