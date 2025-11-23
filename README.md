@@ -1,4 +1,4 @@
-# MRCJava – Object-Oriented Programming in C#📘
+#  VisualProgrammingCSharp– Object-Oriented Programming in C#📘
 
 Welcome to the official GitHub repository for the **Object-Oriented Programming (OOP) in C# ** course at **Mahendra Ratna Campus** .
 
