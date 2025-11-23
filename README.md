@@ -37,7 +37,7 @@ Each student must create and use **only one personal branch** using the followin
 
 ### 1. Fork and Clone the Repository
 ```
-git clone https://github.com/epiyushpant/MRC2025OOP.git
+git clone https://github.com/epiyushpant/VisualProgrammingCSharp.git
 ```
 
 ### 2. Create Your Branch (if not already created)
