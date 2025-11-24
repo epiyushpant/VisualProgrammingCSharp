@@ -15,7 +15,11 @@ namespace LearnADODotnet.Models
 {
     public class EmployeeDataAccessLayer
     {
-        string connectionString = "Server=PIYUSH;Initial Catalog=LearnADO;User ID=sa;Password=12345; TrustServerCertificate=True;";
+        //string connectionString = "Server=PIYUSH;Initial Catalog=LearnADO;User ID=sa;Password=12345; TrustServerCertificate=True;";
+
+
+        string connectionString = "Server=DESKTOP-3T61PLS\\SQLEXPRESS;Database=LearnADO;Trusted_Connection=True;TrustServerCertificate=True;";
+
 
         //To View all employees details    
         public IEnumerable<Employee> GetAllEmployees()
