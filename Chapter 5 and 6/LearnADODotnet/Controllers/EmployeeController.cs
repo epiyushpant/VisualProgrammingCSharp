@@ -3,21 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LearnADODotnet.Controllers
 {
+    [Route("Employee")]
     public class EmployeeController : Controller
     {
         EmployeeDataAccessLayer objemployee = new EmployeeDataAccessLayer();
 
+        // GET: /Employee
+        [HttpGet("")]
         public IActionResult Index()
         {
-            List<Employee> lstEmployee = new List<Employee>();
-            lstEmployee = objemployee.GetAllEmployees().ToList();
-
-            //return View(lstEmployee);
-
-            // Get the total number of employees
+            List<Employee> lstEmployee = objemployee.GetAllEmployees().ToList();
             int totalEmployees = objemployee.GetTotalEmployee();
 
-            // Create a ViewModel or pass the data directly
             var viewModel = new EmployeeIndexViewModel
             {
                 Employees = lstEmployee,
@@ -27,13 +24,15 @@ namespace LearnADODotnet.Controllers
             return View(viewModel);
         }
 
-        [HttpGet]
+        // GET: /Employee/Create
+        [HttpGet("Create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        [HttpPost]
+        // POST: /Employee/Create
+        [HttpPost("Create")]
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind] Employee employee)
         {
@@ -45,7 +44,8 @@ namespace LearnADODotnet.Controllers
             return View(employee);
         }
 
-        [HttpGet]
+        // GET: /Employee/Edit/5
+        [HttpGet("Edit/{id}")]
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -61,7 +61,8 @@ namespace LearnADODotnet.Controllers
             return View(employee);
         }
 
-        [HttpPost]
+        // POST: /Employee/Edit/5
+        [HttpPost("Edit/{id}")]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind] Employee employee)
         {
@@ -77,7 +78,8 @@ namespace LearnADODotnet.Controllers
             return View(employee);
         }
 
-        [HttpGet]
+        // GET: /Employee/Details/5
+        [HttpGet("Details/{id}")]
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -93,7 +95,8 @@ namespace LearnADODotnet.Controllers
             return View(employee);
         }
 
-        [HttpGet]
+        // GET: /Employee/Delete/5
+        [HttpGet("Delete/{id}")]
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,14 +112,14 @@ namespace LearnADODotnet.Controllers
             return View(employee);
         }
 
-        [HttpPost, ActionName("Delete")]
+        // POST: /Employee/Delete/5
+        [HttpPost("Delete/{id}")]
+        [ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int? id)
         {
             objemployee.DeleteEmployee(id);
             return RedirectToAction("Index");
         }
-
-
     }
 }

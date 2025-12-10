@@ -1,12 +1,4 @@
-﻿using C_Basics.Enums;
-using C_Basics.Oop.Encapsulation;
-using C_Basics.Oop.Inheritance.Level.Multi;
-using C_Basics.Oop.Inheritance.Types.Multiple;
-using C_Basics.Oop.Abstraction;
-using C_Basics.Operators;
-using C_Basics.ExceptionHandlingDemo;
-using C_Basics.Class;
-using C_Basics.Class.Static;
+﻿using C_Basics.Oop.Polymorphism;
 
 namespace C_Basics
 {
@@ -59,7 +51,12 @@ namespace C_Basics
             //SICaller.GetBankUtility();
 
             //ShapeCaller.GetShape();
-            ShapeCaller.GetShapeOverloading();
+            //ShapeCaller.GetShapeOverloading();
+            //OperatorOverloadingDemo.GetOperatorOverloadingDemo();
+
+            //OperatorOverloadingDemo.GetComplexNumberw();
+
+            MethodOverridingDemo.GetOverriding();
 
         }
     }

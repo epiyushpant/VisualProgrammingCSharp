@@ -1,5 +1,6 @@
 ﻿using System.Data;
-using Dapper;       
+using Dapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 
 
@@ -15,45 +16,84 @@ namespace LearnADODotnet.Models
 {
     public class EmployeeDataAccessLayer
     {
-        string connectionString = "Server=PIYUSH;Initial Catalog=LearnADO;User ID=sa;Password=12345; TrustServerCertificate=True;";
+        string connectionString = "Server=PIYUSH;Initial Catalog=LearnADO;User ID=sa;Password=123456; TrustServerCertificate=True;";
 
         //To View all employees details    
         public IEnumerable<Employee> GetAllEmployees()
         {
-            List<Employee> lstemployee = new List<Employee>();
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand("spGetAllEmployees", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                con.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    Employee employee = new Employee();
-
-                    employee.EmployeeId = Convert.ToInt32(rdr["EmployeeID"]);
-                    employee.Name = rdr["Name"].ToString();
-                    employee.Gender = rdr["Gender"].ToString();
-                    employee.Department = rdr["Department"].ToString();
-                    employee.City = rdr["City"].ToString();
-
-                    lstemployee.Add(employee);
-                }
-                con.Close();
-            }
-            return lstemployee;
-           
-            
+            // List<Employee> lstemployee = new List<Employee>();
 
             //using (SqlConnection con = new SqlConnection(connectionString))
             //{
-            //    return con.Query<Employee>("spGetAllEmployees", commandType: CommandType.StoredProcedure).ToList();
+            //    SqlCommand cmd = new SqlCommand("spGetAllEmployees", con);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+
+            //    con.Open();
+            //    SqlDataReader rdr = cmd.ExecuteReader();
+
+            //    while (rdr.Read())
+            //    {
+            //        Employee employee = new Employee();
+
+            //        employee.EmployeeId = Convert.ToInt32(rdr["EmployeeID"]);
+            //        employee.Name = rdr["Name"].ToString();
+            //        employee.Gender = rdr["Gender"].ToString();
+            //        employee.Department = rdr["Department"].ToString();
+            //        employee.City = rdr["City"].ToString();
+
+            //        lstemployee.Add(employee);
+            //    }
+            //    con.Close();
             //}
-           
+            //return lstemployee;
+
+
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                return con.Query<Employee>("spGetAllEmployees", commandType: CommandType.StoredProcedure).ToList();
+            }
+
         }
+
+        //This is for disconnected data access - Backward browsing
+        public List<Employee> GetAllEmployeesBackward()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                // Step 1: Create DataAdapter with stored procedure
+                SqlDataAdapter da = new SqlDataAdapter("spGetAllEmployees", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                // Step 2: Fill DataSet (disconnected snapshot)
+                DataSet ds = new DataSet();
+                da.Fill(ds, "Employees");
+
+                // Step 3: Get DataTable reference
+                DataTable dt = ds.Tables["Employees"];
+
+                // Step 4: Prepare list to return
+                List<Employee> employees = new List<Employee>();
+
+                // ✅ Backward browsing: start from last row and move to first
+                for (int i = dt.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataRow row = dt.Rows[i];
+                    employees.Add(new Employee
+                    {
+                        EmployeeId = (int)row["EmployeeID"],
+                        Name = row["Name"].ToString(),
+                        Gender = row["Gender"].ToString(),
+                        Department = row["Department"].ToString(),
+                        City = row["City"].ToString()
+                    });
+                }
+
+                return employees;
+            }
+        }
+
+
 
         //To Add new employee record    
         public void AddEmployee(Employee employee)

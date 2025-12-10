@@ -1,0 +1,55 @@
+In .NET (specifically ASP.NET Core), routing is the mechanism that maps incoming HTTP requests (like /employees/details/5) to the correct piece 
+of code in your application (such as a controller action, Razor Page, or minimal API endpoint). 
+It acts like a traffic controller, examining the URL and deciding which method should handle the request.
+
+
+Types of routing 
+1. Convention-Based Routing (MVC style)
+Uses predefined patterns to map URLs to controllers and actions.
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
+
+
+2. Attribute Routing
+Routes are defined directly on controller actions using attributes.
+
+[Route("api/[controller]")]
+public class EmployeesController : ControllerBase
+{
+    [HttpGet("{id}")]
+    public IActionResult GetEmployee(int id) { ... }
+}
+
+URL /api/employees/5 → GetEmployee(5).
+
+3. Endpoint Routing 
+Introduced in ASP.NET Core 3.0.
+Provides a unified system for MVC, Razor Pages, and minimal APIs.
+Example with minimal APIs:
+
+app.MapGet("/employees/{id}", (int id) => $"Employee ID: {id}");
+
+
+
+
+
+
+
+
+
+
+
+
+Request → Middleware Pipeline
+        → Routing Middleware
+            → Match URL against route table
+            → Extract route values
+            → Select endpoint
+        → Endpoint Middleware
+            → Invoke controller/action/minimal API
+Response ← Back through pipeline

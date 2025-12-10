@@ -15,4 +15,7 @@
   <ItemGroup>
     <Folder Include="Class\PartialClass\NewFolder\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Class\MultipleInheritance\DiamondProblemSolution.cs" />
+  </ItemGroup>
 </Project>
