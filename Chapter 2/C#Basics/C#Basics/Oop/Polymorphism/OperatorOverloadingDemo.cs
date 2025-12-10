@@ -1,29 +1,6 @@
 ﻿namespace C_Basics.Oop.Polymorphism
 {
-    using System;
-
-    public class MyString
-    {
-        public string Value { get; private set; }
-
-        public MyString(string value)
-        {
-            Value = value;
-        }
-
-        // Overloading the + operator
-        public static MyString operator +(MyString s1, MyString s2)
-        {
-            return new MyString($"[{s1.Value}] + [{s2.Value}]");
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
-    }
-
-   public  class OperatorOverloadingDemo
+   public class OperatorOverloadingDemo
     {
         public static void GetOperatorOverloadingDemo()
         {
@@ -36,5 +13,30 @@
             Console.WriteLine($"String 2: {str2}");
             Console.WriteLine($"Result of concatenation with custom format: {result}");
         }
+
+        public static void GetComplexNumber()
+        {
+
+            Complex c1 = new Complex(5, 4);
+            Complex c2 = new Complex(2, 3);
+
+            Complex sum = c1 + c2;   // Calls overloaded +
+            Complex diff = c1 - c2;  // Calls overloaded -
+            bool equal = c1 == c2;   // Calls overloaded ==
+            bool notequal = c1 != c2; // Calls overloaded !=
+
+            Console.WriteLine("First Complex Number: ");
+            c1.Display();
+            Console.WriteLine("Second Complex Number: ");
+            c2.Display();
+
+            Console.WriteLine("\nSum: ");
+            sum.Display();
+            Console.WriteLine("Difference: ");
+            diff.Display();
+
+            Console.WriteLine($"\nAre both equal? {equal}");
+            Console.WriteLine($"Are both not equal? {notequal}");
         }
-    }
+}
+}

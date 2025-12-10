@@ -11,11 +11,11 @@
 
     public class Dog : Animal
     {
-        // Overriding the virtual method in the derived class
-        public override void MakeSound()
-        {
-            Console.WriteLine("Dog barks");
-        }
+        //Overriding the virtual method in the derived class
+        //public override void MakeSound()
+        //{
+        //    Console.WriteLine("Dog barks");
+        //}
     }
 
     public class Cat : Animal
@@ -30,14 +30,24 @@
     
     public class MethodOverridingDemo
     {
-        public static void GetOverloading() {
+        public static void GetOverriding() {
 
+            Animal animal = new Animal();         
             Animal myDog = new Dog(); // Upcasting
             Animal myCat = new Cat(); // Upcasting
 
+            animal.MakeSound(); // Outputs "Animal makes a sound"
             // Calling the overridden methods
             myDog.MakeSound(); // Outputs "Dog barks"
             myCat.MakeSound(); // Outputs "Cat meows"
+
+
+
+            Dog dog = new Dog();
+            dog.MakeSound();
+
+            //BCRV - Base Class Reference Variable pointing to Derived Class Object will call the 
+           // Derived Class overridden method.
         }
     }
 }
