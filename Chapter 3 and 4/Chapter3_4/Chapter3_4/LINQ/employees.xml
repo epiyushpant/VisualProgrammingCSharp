@@ -1,0 +1,6 @@
+﻿ <Employees>
+	<Employee Id="1" Name="Ram" Salary="50000" />
+	<Employee Id="2" Name="Sita" Salary="60000" />
+	<Employee Id="3" Name="Hari" Salary="45000" />
+</Employees>
+

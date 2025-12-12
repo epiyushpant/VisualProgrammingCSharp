@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Chapter3_4;
+using Chapter3_4.LINQ;
 
 //Console.WriteLine("Hello, World!");
 //CollectionGeneric.DemoList();
@@ -7,12 +8,16 @@ using Chapter3_4;
 //CollectionGeneric.DemoQueue();
 //CollectionGeneric.DemoSortedList();
 
-CollectionNonGeneric.DemoArrayList();
+//CollectionNonGeneric.DemoArrayList();
 //CollectionNonGeneric.DemoHashtable();
 //CollectionNonGeneric.DemoDictionary();
 //StringBuilder.DemoStringBuilder();
 //StringBuilder.CompareStringVsStringBuilder();
 //StringBuilder.DemoStringInterpolation();
 //StringBuilder.StringManipulation();
+
+//LINQExample.LINQPrintNumbers();
+
+Chapter3_4.LINQ.LINQDemo.RunAllDemos();
 
 
