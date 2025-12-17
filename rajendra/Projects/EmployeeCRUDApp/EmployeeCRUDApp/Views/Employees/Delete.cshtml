@@ -1,0 +1,12 @@
+﻿@model EmployeeCRUDApp.Models.Employee
+
+<h2>Delete Employee</h2>
+
+<h4>Are you sure?</h4>
+
+<p>@Model.Name</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

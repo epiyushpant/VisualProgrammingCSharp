@@ -1,0 +1,20 @@
+﻿@model EmployeeCRUDApp.Models.Employee
+
+<h2>Create Employee</h2>
+
+<form asp-action="Create">
+    <label>Name</label>
+    <input asp-for="Name" class="form-control" />
+
+    <label>Department</label>
+    <input asp-for="Department" class="form-control" />
+
+    <label>Salary</label>
+    <input asp-for="Salary" class="form-control" />
+
+    <label>Email</label>
+    <input asp-for="Email" class="form-control" />
+
+    <br />
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

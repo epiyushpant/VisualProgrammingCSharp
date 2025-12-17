@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EmployeeCRUDApp.Models.Employee>
+
+<h2>Employee List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add Employee</a>
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Department</td>
+            <td>@item.Salary</td>
+            <td>@item.Email</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

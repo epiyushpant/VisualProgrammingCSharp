@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - EmployeeCRUDApp</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/Employees">Employees</a>
+
+            <ul style="display:inline; float:right;">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li>
+                        <a asp-area="Identity" asp-page="/Account/Manage/Index">Hello @User.Identity.Name!</a>
+                    </li>
+                    <li>
+                        <form asp-area="Identity" asp-page="/Account/Logout" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-link">Logout</button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+                    </li>
+                    <li>
+                        <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - EmployeeCRUDApp</p>
+    </footer>
+
+    <script src="~/js/site.js"></script>
+</body>
+</html>
