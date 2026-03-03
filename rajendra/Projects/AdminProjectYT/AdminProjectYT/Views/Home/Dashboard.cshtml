@@ -1,0 +1,90 @@
+﻿@model List<AdminProjectYT.Models.Products>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-5">
+
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold mb-0">Dashboard</h1>
+            <p class="text-muted">Product Management Overview</p>
+        </div>
+
+        <div>
+        <!-- Add Product Button -->
+        <a asp-controller="Product"
+           asp-action="AddProduct"
+           class="btn btn-success btn-sm shadow-sm">
+            + Add Product
+        </a>
+
+        <a asp-controller="Home"
+           asp-action="Logout"
+           class="btn btn-danger btn-sm shadow-sm ms-2">
+            Logout
+        </a>
+        </div>
+    </div>
+
+    <!-- Product Card -->
+    <div class="card shadow-lg">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">Product List</h4>
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Color</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (Model == null || !Model.Any())
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center text-muted">
+                                    No products available.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var product in Model)
+                            {
+                                <tr>
+                                    <td>@product.ProductId</td>
+                                    <td>@product.Name</td>
+                                    <td>@product.Description</td>
+                                    <td>
+                                        <span class="badge bg-success fs-6">
+                                            रु @product.Price /-
+                                        </span>
+                                    </td>
+                                    <td>@product.Color</td>
+                                    <td class="gap-2 "><a asp-controller="Product" asp-action="DeleteProduct" class="btn btn-danger btn-sm" asp-route-productid="@product.ProductId" >Delete</a>
+                                        <a asp-controller="Product" asp-action="EditProduct" class="btn btn-success btn-sm mt-1" asp-route-productid="@product.ProductId">Edit</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>

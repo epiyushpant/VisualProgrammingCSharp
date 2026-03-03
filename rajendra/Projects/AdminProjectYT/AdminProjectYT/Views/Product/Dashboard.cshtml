@@ -1,0 +1,55 @@
+﻿@model List<AdminProjectYT.Models.Products>
+
+@{
+	ViewData["Title"] = "Dashboard";
+
+}
+
+<div class="text-center">
+	<h1 class="display-4">Dashboard</h1>
+
+</div>
+
+<div>
+	<h2> Product List</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Product ID</th>
+				<th>Product Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Color</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			@{
+				if (Model == null || !Model.Any())
+				{
+					<tr>
+						<td colspan="5" class="text-center">No products available.</td></tr>
+				}
+				else
+				{
+					@foreach (var product in Model)
+					{
+						<tr>
+							<td>@product.ProductId</td>
+							<td>@product.Name</td>
+							<td>@product.Description</td>
+							<td>@product.Price</td>
+							<td>@product.Color</td>
+						</tr>
+					}
+					
+				}
+			}
+
+			
+		</tbody>
+
+		</table>
+	</div>
+
+
