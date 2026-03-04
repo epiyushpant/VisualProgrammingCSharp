@@ -45,6 +45,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Employees}/{action=Index}/{id?}");
 
-app.MapRazorPages();   // ✅ REQUIRED
+app.MapRazorPages();   
 
 app.Run();
