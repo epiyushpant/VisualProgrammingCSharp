@@ -1,16 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogSati.Models
 {
-    public class UserModel
-    {
 
+    [Table("Users")]
+    public class Users
+    {
         [Key]
         public int UserID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
+        public string Role { get; set; } = "user";
     }
 }

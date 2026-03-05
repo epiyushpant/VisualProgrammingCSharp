@@ -1,0 +1,62 @@
+﻿﻿@{
+    ViewData["Title"] = "Register Page";
+}
+
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+
+    <div class="card shadow-lg p-4" style="width: 450px;">
+
+        <h3 class="text-center mb-4 fw-bold">Register</h3>
+
+        <form asp-controller="Home" asp-action="RegisterUser" method="post">
+
+            <div class="mb-3">
+                <label for="username" class="form-label fw-semibold">Username</label>
+                <input type="text" class="form-control"
+                       name="username"
+                       id="username"
+                       placeholder="Enter your username" />
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label fw-semibold">Email</label>
+                <input type="email" class="form-control"
+                       name="email"
+                       id="email"
+                       placeholder="Enter your email" />
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label fw-semibold">Password</label>
+                <input type="password" class="form-control"
+                       name="password"
+                       id="password"
+                       placeholder="Enter password" />
+            </div>
+
+            <div class="mb-4">
+                <label for="confirmPassword" class="form-label fw-semibold">Confirm Password</label>
+                <input type="password"
+                       class="form-control"
+                       name="confirmPassword"
+                       id="confirmPassword"
+                       placeholder="Re-type password" />
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success btn-lg">
+                    Register
+                </button>
+            </div>
+
+            <p class="text-center mt-3 mb-0">
+                Already have an account?
+                <a asp-controller="Home" asp-action="Index" class="fw-semibold text-success">
+                    Login
+                </a>
+            </p>
+
+        </form>
+    </div>
+
+</div>

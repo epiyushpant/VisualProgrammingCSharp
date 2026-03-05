@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Blog\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+
 </Project>

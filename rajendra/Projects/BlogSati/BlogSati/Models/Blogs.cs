@@ -1,9 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogSati.Models
 {
-    public class BlogModel
+    [Table("Blogs")]
+
+    public class Blogs
     {
+        [Key]
         public int BlogId { get; set; }
         [Required]
         [StringLength(200)]
@@ -25,7 +29,5 @@ namespace BlogSati.Models
         public DateTime? UpdatedAt { get; set; }
 
         public bool IsPublished { get; set; } = true;
-
-
     }
 }

@@ -1,0 +1,44 @@
+﻿﻿<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+
+    <div class="card shadow p-4" style="width: 400px;">
+
+        <h2 class="text-center mb-4">Login</h2>
+
+        <form asp-controller="Home" asp-action="Login" method="post">
+
+            <div class="mb-3">
+                <label for="username" class="form-label fw-semibold">Username</label>
+                <input type="text"
+                       class="form-control"
+                       id="username"
+                       name="username"
+                       placeholder="Enter your username" />
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="form-label fw-semibold">Password</label>
+                <input type="password"
+                       class="form-control"
+                       id="password"
+                       name="password"
+                       placeholder="Enter your password" />
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success btn-lg">
+                    Log In
+                </button>
+            </div>
+
+        </form>
+
+        <div class="text-center mt-3">
+            <small>
+                Don't have an account?
+                <a asp-controller="Home" class="text-success fw-semibold" asp-action="Register">Register</a>
+            </small>
+        </div>
+
+    </div>
+
+</div>
